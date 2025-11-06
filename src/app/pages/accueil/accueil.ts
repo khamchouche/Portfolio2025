@@ -6,6 +6,10 @@ import { Projet } from '../../models/projet';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common'; 
 import { RouterLink } from '@angular/router';
+import { CompetencesComponent } from '../competences/competences';
+import { Contact } from '../contact/contact';
+import { Projets } from '../projets/projets';
+import { Experiences } from '../experiences/experiences';
 
 
 
@@ -13,8 +17,15 @@ import { RouterLink } from '@angular/router';
   selector: 'app-accueil',
   standalone: true,
   // La modale est gardée dans les imports car elle pourrait être réutilisée par le bouton CV
-  imports: [CommonModule, RouterLink], 
-  templateUrl: './accueil.html', 
+  imports: [
+    CommonModule, 
+    RouterLink, 
+    CompetencesComponent, // ⬅️ Nécessaire
+    Projets,     // ⬅️ Nécessaire
+    Contact,
+    Experiences      // ⬅️ Nécessaire
+  ],
+  templateUrl:'./accueil.html', 
   styleUrls: ['./accueil.scss']
 })
 export class AccueilComponent implements OnInit {
