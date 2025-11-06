@@ -6,22 +6,20 @@ import { Projet } from '../../models/projet';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common'; 
 import { RouterLink } from '@angular/router';
-import { JackpotModalComponent } from '../../components/jackpot-modal/jackpot-modal';
+
 
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
   // La modale est gardée dans les imports car elle pourrait être réutilisée par le bouton CV
-  imports: [CommonModule, RouterLink, JackpotModalComponent], 
+  imports: [CommonModule, RouterLink], 
   templateUrl: './accueil.html', 
   styleUrls: ['./accueil.scss']
 })
 export class AccueilComponent implements OnInit {
   
-  // PROPRIÉTÉS D'ÉTAT
-  showJackpotModal: boolean = false; 
-  
+
   // 🛑 PROPRIÉTÉS POUR LA TRONCATURE ET LECTURE PLUS
   maxTextLength: number = 280; // Coupe le texte après 280 caractères
   isTextExpanded: boolean = false; 
@@ -70,9 +68,5 @@ export class AccueilComponent implements OnInit {
     alert('Téléchargement du CV lancé !');
     // Vous pouvez insérer ici la logique finale pour ouvrir votre PDF
     // Exemple : window.open('assets/votre-cv.pdf', '_blank');
-  }
-
-  closeModal(): void {
-    this.showJackpotModal = false;
   }
 }
