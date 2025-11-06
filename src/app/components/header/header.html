@@ -1,0 +1,44 @@
+<nav class="nav">
+    <div class="nav-container">
+        <div class="nav-content">
+            
+            <div class="nav-logo-group">
+                <a [routerLink]="['/']" class="logo">
+                    Mon portolio
+                </a>
+            </div>
+            
+            <div class="flex-grow"></div> 
+            
+            <div class="nav-admin-link">
+                <a [routerLink]="['/securis-admin-login-2025']" class="admin-link">
+                    [Accès]
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="postit-nav-container">
+    
+    <a [routerLink]="['/']" routerLinkActive="active-postit" [routerLinkActiveOptions]="{exact: true}" class="postit-item postit-yellow">
+        <span>ACCUEIL</span>
+    </a>
+    
+    <a [routerLink]="['/projets']" routerLinkActive="active-postit" class="postit-item postit-pink">
+        <span>MES<br>PROJETS</span>
+    </a>
+    
+    <a [routerLink]="['/experiences']" routerLinkActive="active-postit" class="postit-item postit-blue">
+        <span>MON<br>PARCOURS</span>
+    </a>
+    
+    <a [routerLink]="['/competences']" routerLinkActive="active-postit" class="postit-item postit-green">
+        <span>COMPÉ<br>TENCES</span>
+    </a>
+    
+    <a [routerLink]="['/contact']" routerLinkActive="active-postit" class="postit-item postit-yellow postit-yellow-2">
+        <span>CONTACT</span>
+    </a>
+
+</div>

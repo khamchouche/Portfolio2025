@@ -1,0 +1,62 @@
+<div class="competences-container">
+    <h1 class="page-title">Mes compétences</h1>
+    <div class="skill-category-section">
+        <h2 class="category-title">Logiciel & Environnements</h2>
+        <div class="skill-cards-grid">
+            
+            <div *ngFor="let skill of getSkillsByType('langage')" class="skill-card-vertical">
+                <div class="card-header-icon">
+                    <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="skill-logo">
+                    <span *ngIf="!skill.logo_url" class="card-icon">&#123;&#125;</span>
+                </div>
+                <div class="card-body-content">
+                    <h3 class="card-skill-name">{{ skill.nom }}</h3>
+                    <span class="card-type type-code">{{ skill.type | uppercase }}</span>
+                </div>
+            </div>
+
+            <div *ngFor="let skill of getSkillsByType('framework'); let i = index" class="skill-card-vertical" [ngClass]="{'border-accent': i % 2 === 0}">
+                <div class="card-header-icon">
+                    <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="skill-logo">
+                    <span *ngIf="!skill.logo_url" class="card-icon">&#9889;</span>
+                </div>
+                <div class="card-body-content">
+                    <h3 class="card-skill-name">{{ skill.nom }}</h3>
+                    <span class="card-type type-code">{{ skill.type | uppercase }}</span>
+                </div>
+            </div>
+            
+            <div *ngFor="let skill of getSkillsByType('database')" class="skill-card-vertical">
+                 <div class="card-header-icon">
+                    <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="skill-logo">
+                    <span *ngIf="!skill.logo_url" class="card-icon">&#9733;</span>
+                </div>
+                <div class="card-body-content">
+                    <h3 class="card-skill-name">{{ skill.nom }}</h3>
+                    <span class="card-type type-code">{{ skill.type | uppercase }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="skill-category-section">
+        <h2 class="category-title">Méthodologies & Humaines</h2>
+        <div class="skill-cards-grid human-skills-grid">
+            <div *ngFor="let skill of getSkillsByType('methodologie')" class="skill-card-vertical methodology-card">
+                <span class="card-icon">🎯</span>
+                <div class="card-body-content">
+                    <h3 class="card-skill-name">{{ skill.nom }}</h3>
+                </div>
+            </div>
+            <div *ngFor="let skill of getSkillsByType('humaine')" class="skill-card-vertical human-card">
+                <span class="card-icon">🧠</span>
+                <div class="card-body-content">
+                    <h3 class="card-skill-name">{{ skill.nom }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</div>

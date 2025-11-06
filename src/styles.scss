@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fichier: src/styles.scss */
+
+$color-background: #e6a7a7; // Assurez-vous d'avoir cette variable ou cette couleur
+
+body {
+    /* 🛑 CORRECTION CLÉ : Appliquer la couleur de fond au body et retirer les marges */
+    background-color: $color-background !important;
+    color: #e5e7eb; /* Couleur du texte principal */
+    margin: 0; /* Important pour supprimer toute marge par défaut */
+    padding-top: 150px; /* Conserver le décalage pour le contenu */
+}
+/* Fichier: src/styles.scss */
+
+/* 🛑 CORRECTION CLÉ : RÉINITIALISATION DU STYLE NAVIGATEUR 🛑 */
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Assurez-vous que la hauteur minimale couvre l'écran */
+    min-height: 100vh; 
+}
+
+/* ... (Le reste de votre code styles.scss pour Tailwind/SCSS) ... */

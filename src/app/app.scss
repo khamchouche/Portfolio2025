@@ -1,0 +1,123 @@
+/* Fichier: src/app/app.component.scss */
+
+$mario-blue: #4286f4;
+$mario-red: #ea357a;
+$mario-yellow: #e996cd;
+$mario-green: #34a853;
+
+/* --- HEADER PRINCIPAL (Le Composant Racine) --- */
+.mario-header {
+    /* 🛑 POSITIONNEMENT CRITIQUE : ANCRAGE FIXE ET TOTAL */
+    position: relative; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    
+    /* HAUTEUR DÉFINITIVE ET STABLE (150px + 5px bordure) */
+    height: 155px; 
+    
+    /* Nettoyage des paddings conflictuels */
+    padding: 0; 
+    padding-bottom: 0;
+    /* 🛑 CORRECTION CLÉ : GIF DE PÉTALES EN ARRIÈRE-PLAN 🛑 */
+    background-image: url('/assets/petales.gif'); /* ⬅️ Votre GIF de pétales */
+    background-size: cover; /* ⬅️ Couvre toute la largeur/hauteur du Header */
+    background-position: center center; /* ⬅️ Centre le GIF */
+    background-repeat: no-repeat; /* ⬅️ Ne répète pas le GIF */
+    /* Fixer le style visuel */
+    background-size: cover;
+    background-position: center bottom;
+    text-align: center;
+    z-index: 100; /* Assure qu'il est au-dessus du contenu */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-bottom: 5px solid $mario-yellow;
+    overflow: hidden; 
+}
+
+/* --- CONTENU DU HEADER (Titre et Sous-titre) --- */
+.mario-header-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    
+    /* 🛑 AJUSTEMENT CLÉ : Pousse le titre loin du bord supérieur */
+    padding-top: 20px; 
+    padding-bottom: 25px; /* Crée l'espace avant les étoiles (25px) */
+}
+
+.mario-title {
+    font-family: 'Super Mario 256', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 0; /* Retiré les marges conflictuelles */
+    margin-top: 0;
+    color: $mario-yellow;
+    -webkit-text-stroke: 2px $mario-red;
+}
+
+.mario-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: $mario-blue;
+    font-weight: bold;
+}
+
+/* --- NAVIGATION (Étoiles) --- */
+.mario-nav {
+    position: absolute;
+    bottom: 10px; /* Fixe les étoiles juste au-dessus du bord inférieur */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px; 
+    z-index: 3;
+}
+
+.mario-star-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-5px) scale(1.1);
+    }
+}
+
+.mario-star {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 0 5px rgba(255,255,0,0.8));
+}
+
+.star-label {
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* --- Mini Mario Suiveur --- */
+.mario-follower {
+    position: absolute;
+    bottom: 0px; 
+    transition: transform 0.3s ease-in-out;
+    z-index: 4;
+    left: 70%;
+}
+
+.mini-mario {
+   width: 80px; /* Augmenté de 50px à 80px */
+    height: auto;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+}
+
+/* --- ZONE DE CONTENU PRINCIPAL --- */
+.router-content {
+    /* 🛑 CORRECTION CLÉ : Compenser la hauteur du header fixe */
+    padding-top: 0px; /* ⬅️ 155px (hauteur réelle du header) + 25px de marge de sécurité */
+    position: relative; 
+    z-index: 1; 
+}

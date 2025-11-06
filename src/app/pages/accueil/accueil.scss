@@ -1,0 +1,229 @@
+/* Fichier: src/app/pages/accueil/accueil.scss (Styles ID Card Style VALORANT/Tactique) */
+
+// Variables du thème (utilisées de manière agressive)
+$color-background: #424041;     // Noir de base
+$color-surface: #4c4d4e;        // Gris-bleu foncé (Fond de la carte)
+$color-text: #f0f0f0;           // Blanc clair
+$color-accent-main: #e996cd;    // 🛑 ROUGE VIF (ACCENT TACTIQUE)
+$color-accent-secondary: #ea357a; // CYAN (Accent secondaire)
+$color-border: #4b5563;         // Gris moyen
+
+/* --- CARTE ID STYLE TACTIQUE --- */
+
+.profile-id-card-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem auto;
+    perspective: 1000px;
+}
+
+.profile-id-card {
+    background-color: $color-surface;
+    border: 1px solid $color-accent-secondary; /* Ligne fine et nette */
+    border-radius: 4px; /* Coins légèrement arrondis */
+    
+    /* 🛑 OMBRE TACTIQUE : Bordure et ombre vives */
+    box-shadow: 0 0 0 4px $color-background, 0 0 0 5px $color-accent-main;
+    
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    
+    color: $color-text;
+    position: relative;
+    overflow: hidden;
+    
+    animation: slideIn 0.8s ease-out forwards;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+        transform: scale(1.01); /* Effet zoom subtil */
+        box-shadow: 0 0 0 4px $color-background, 0 0 0 6px $color-accent-main; /* Accentuer l'ombre */
+    }
+}
+
+/* --- EN-TÊTE ET ZONES DÉTAILS --- */
+
+.card-title-bar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $color-accent-secondary; /* Ligne dans la card
+    font-family: 'Agency FB', sans-serif; /* Police large et condensée (futuriste) */
+}
+
+.id-label, .id-number {
+    font-size: 0.9rem;
+    color: $color-accent-main; /* Rouge tactique */
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-main-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+/* --- ZONE AVATAR --- */
+
+.card-avatar-group {
+    text-align: center;
+    border-right: 1px dashed $color-border;
+    padding-right: 20px;
+}
+
+.card-avatar-area {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    background-color: $color-background;
+    border: 3px solid $color-accent-secondary; /* Bordure Cyan */
+    border-radius: 0; /* 🛑 Supprimer le border-radius pour un look angulaire */
+    box-shadow: 0 0 10px rgba($color-accent-secondary, 0.4);
+    overflow: hidden;
+}
+
+.card-name {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 900;
+    margin-top: 5px;
+    font-family: 'Agency FB', sans-serif;
+}
+
+.card-role {
+    font-family: 'Consolas', monospace;
+    color: $color-accent-main;
+    font-size: 0.9rem;
+}
+
+/* --- GRILLE DE DÉTAILS (TACTIQUE) --- */
+
+.card-details-grid {
+    display: flex;
+    flex-direction: column; /* Affichage en colonne */
+    gap: 10px;
+    align-content: flex-start;
+}
+
+.detail-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: $color-accent-secondary; /* Cyan */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.detail-value {
+    font-size: 1rem;
+    color: $color-text;
+    font-weight: 500;
+    font-family: 'Consolas', monospace; /* Police code pour les données */
+}
+
+.type-code {
+    background-color: $color-accent-main; /* Rouge */
+    color: $color-background;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 900;
+}
+
+/* --- CITATION/OBJECTIF --- */
+
+.card-quote-box {
+    grid-column: 1 / 3;
+    padding-top: 20px;
+    border-top: 2px solid $color-accent-main; /* Ligne de séparation ROUGE VIVE */
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card-quote {
+    font-style: normal; /* Pas d'italique */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-text;
+    font-family: 'Inter', sans-serif;
+}
+/* Fichier: src/app/pages/accueil/accueil.scss (Styles du Bouton CV Tactique) */
+
+/* --- BARRE D'ACTION (Conteneur du bouton) --- */
+.card-action-bar {
+    grid-column: 1 / 3;
+    padding-top: 15px;
+    text-align: center;
+    //border-top: 1px solid $color-border;
+    margin-top: 10px;
+}
+
+/* --- BOUTON CV TACTIQUE --- */
+.btn-cv-tactical {
+    background-color: $color-accent-main; /* Rouge Vif */
+    color: $color-background;
+    border: 2px solid $color-accent-main;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 2px; /* Style angulaire */
+    position: relative;
+    overflow: hidden;
+    
+    // Ajout d'une ombre décalée pour le côté tactique
+    box-shadow: 3px 3px 0 $color-accent-secondary; 
+    margin-left: 20px;
+
+    &:hover {
+        background-color: darken($color-accent-main, 10%);
+        color: white;
+        transform: translate(-1px, -1px); /* Décalage au survol */
+        box-shadow: 5px 5px 0 $color-accent-secondary; 
+    }
+}
+
+.icon-arrow {
+    margin-left: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-cv-tactical:hover .icon-arrow {
+    transform: translateX(5px);
+}
+/* Fichier: src/app/pages/accueil/accueil.scss (Style pour Lire la Suite) */
+
+.read-more-btn {
+    all: unset; /* Retirer le style de bouton par défaut */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid $color-accent-main; /* Bordure rouge/accent */
+    background-color: transparent;
+    color: $color-accent-secondary; /* Cyan */
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: rgba($color-accent-secondary, 0.1);
+        color: white;
+    }
+}

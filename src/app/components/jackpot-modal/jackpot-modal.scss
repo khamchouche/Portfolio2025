@@ -1,0 +1,91 @@
+/* Fichier: src/app/components/jackpot-modal/jackpot-modal.component.scss */
+
+$color-background: #111827; // Fond sombre
+$color-surface: #1f2937;    // Fond de la modale
+$color-text: #e5e7eb;
+$color-accent: #3b82f6;
+
+.modal-overlay {
+    /* 🛑 CORRECTION CLÉ : Fixe l'élément à l'écran et le centre */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fond semi-transparent pour bloquer l'écran */
+    background-color: rgba(0, 0, 0, 0.85); 
+    
+    /* Centrage */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 2000; /* Assurez-vous d'être au-dessus de tout le reste */
+}
+
+.modal-content {
+    /* Style de la boîte de message elle-même */
+    background-color: $color-surface;
+    color: $color-text;
+    padding: 3rem;
+    border-radius: 12px;
+    
+    /* Design Cyber */
+    box-shadow: 0 0 40px rgba($color-accent, 0.8); 
+    
+    width: 90%;
+    max-width: 500px; /* Limite la taille pour le centrage */
+    text-align: center;
+    position: relative;
+    border: 3px solid $color-accent;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: $color-accent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba($color-accent, 1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: $color-text;
+}
+
+.message-box {
+    background-color: $color-background;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.jackpot-message {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: lighten($color-accent, 20%);
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: $color-text;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.btn-download-cv-modal {
+    background-color: $color-accent;
+    color: $color-background;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba($color-accent, 0.7);
+    transition: background 0.3s;
+    margin-top: 1rem;
+}

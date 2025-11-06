@@ -1,0 +1,157 @@
+/* Fichier: src/app/pages/competences/competences.component.scss (Styles Cartes Verticales) */
+
+// Variables Tactiques (similaires à accueil.scss)
+$color-background: #e6a7a7 !important;
+$color-surface: #4c4d4e;
+$color-text: #f0f0f0;
+$color-accent-main: #ea357a;    // Rouge tactique
+$color-accent-secondary: #ea357a; // Cyan/Aqua
+$color-border: #4b5563;
+$color-type-code: #00bcd4; 
+
+.competences-container {
+    padding: 2rem 1rem;
+    background-color: $color-background;
+    min-height: 100vh;
+    color: $color-text;
+}
+
+.page-title, .category-title {
+    font-family: 'Agency FB', sans-serif;
+    color: $color-accent-main;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba($color-accent-main, 0.5);
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: $color-accent-secondary;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.skill-category-section {
+    max-width: 1200px;
+    margin: 0 auto 40px auto; 
+    padding: 20px;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px $color-background, 0 0 0 3px rgba($color-accent-secondary, 0.5);
+}
+
+.category-title {
+    font-size: 1.5rem;
+    border-bottom: 2px solid $color-accent-main;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- GRILLE CONTENEUR POUR LES PETITES CARTES VERTICALES --- */
+
+.skill-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 20px;
+}
+
+.human-skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+}
+
+/* --- STYLE DE LA CARTE VERTICALE (TYPE LONGUEUR) --- */
+
+.skill-card-vertical {
+    background-color: lighten($color-surface, 5%);
+    border: 1px solid $color-accent-secondary; /* Bordure Cyan */
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    height: 100%; /* Assure que toutes les cartes ont la même hauteur dans la grille */
+    
+    /* Effet Tactique */
+    box-shadow: 3px 3px 0 $color-accent-main; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translate(-3px, -3px); 
+        box-shadow: 6px 6px 0 $color-accent-main; 
+    }
+}
+
+.card-header-icon {
+    margin-bottom: 10px;
+}
+
+.skill-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: $color-accent-main;
+}
+
+.card-body-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-skill-name {
+    font-size: 1.1rem;
+    color: $color-text;
+    font-weight: 500;
+    margin: 0;
+    font-family: 'Consolas', monospace;
+}
+
+.card-type {
+    background-color: $color-accent-main;
+    color: $color-background;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* --- STYLE SPÉCIFIQUE POUR LES LANGUES (FORMAT LIGNE) --- */
+
+.language-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Espacement minimal entre les lignes */
+    border: 1px solid $color-accent-secondary;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.language-card-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: lighten($color-surface, 3%);
+    border-bottom: 1px solid $color-border;
+}
+
+.language-name {
+    color: $color-accent-main;
+    font-weight: bold;
+}
+
+.language-level {
+    color: $color-text;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+}

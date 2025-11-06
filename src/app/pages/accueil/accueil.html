@@ -1,0 +1,64 @@
+<section class="profile-id-card-section">
+    <div class="profile-id-card">
+        
+        <div class="card-title-bar">
+            <span class="id-label">DÉVELOPPEUR ID</span>
+            <span class="id-number">#BUT-IAMSI</span>
+        </div>
+        
+        <div class="card-main-content">
+            <div class="card-avatar-group">
+                <div class="card-avatar-area">
+                    <div *ngIf="!photoUrl" class="card-avatar-placeholder">
+                        <img src="assets/star.png" alt="Avatar" class="card-avatar">
+                    </div>
+                </div>
+                <h2 class="card-name">{{ nomComplet }}</h2>
+                <span class="card-role">{{ titreRole }}</span>
+            </div>
+
+            <div class="card-details-grid">
+                <div class="detail-block">
+                    <span class="detail-label">ÂGE</span>
+                    <span class="detail-value">22 ANS</span>
+                </div>
+                <div class="detail-block">
+                    <span class="detail-label">FORMATION</span>
+                    <span class="detail-value">BUT IAMSI</span>
+                </div>
+                <div class="detail-block">
+                    <span class="detail-label">TYPE PRIMAIRE</span>
+                    <span class="detail-value type-code">FULL-STACK</span>
+                </div>
+                <div class="detail-block">
+                    <span class="detail-label">LOISIRS</span>
+                    <span class="detail-value">JEUX / SÉRIES</span>
+                </div>
+            </div>
+        </div>
+
+       <div class="card-quote-box">
+            <p class="card-quote">{{ displayIntroText }}</p>
+            
+            <button *ngIf="requiresReadMore" 
+                    (click)="toggleTextExpansion()"
+                    class="read-more-btn">
+                
+                {{ isTextExpanded ? 'Voir moins' : 'Lire la suite' }}
+            </button>
+        </div>
+        
+    </div>
+    <div class="card-quote-box">
+          
+        </div>
+        
+        <div class="card-action-bar">
+            <button class="btn btn-cv-tactical" (click)="telechargerCV()">
+                TÉLÉCHARGER MON CV
+                <span class="icon-arrow">&#10148;</span>
+            </button>
+        </div>
+        
+
+</section>
