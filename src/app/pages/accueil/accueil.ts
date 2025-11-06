@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common'; 
 import { RouterLink } from '@angular/router';
 import { CompetencesComponent } from '../competences/competences';
-import { Contact } from '../contact/contact';
+import { ContactComponent } from '../contact/contact';
 import { Projets } from '../projets/projets';
 import { Experiences } from '../experiences/experiences';
-
+import { trigger, transition, style, animate } from '@angular/animations';
 
 
 @Component({
@@ -22,9 +22,10 @@ import { Experiences } from '../experiences/experiences';
     RouterLink, 
     CompetencesComponent, // ⬅️ Nécessaire
     Projets,     // ⬅️ Nécessaire
-    Contact,
+    ContactComponent,
     Experiences      // ⬅️ Nécessaire
   ],
+  
   templateUrl:'./accueil.html', 
   styleUrls: ['./accueil.scss']
 })

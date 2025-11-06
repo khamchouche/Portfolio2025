@@ -1,1 +1,42 @@
-<p>contact works!</p>
+<div class="contact-wrapper">
+    
+    <div class="contact-card">
+        
+        <h3 class="section-subtitle">Liens Directs & Réseaux</h3>
+        <div class="social-icons-bar">
+            
+            <a *ngFor="let link of socialLinks" 
+               [href]="link.url" 
+               target="_blank" 
+               class="social-link-item"
+               [attr.data-tooltip]="link.name"
+               (click)="link.name === 'Email Direct' ? copyEmail() : null">
+
+ <i [ngClass]="getIconClasses(link.iconClass)"></i>
+            </a>
+            
+        </div>
+        
+        <h3 class="section-subtitle separator-top">Coordonnées</h3>
+        
+        <div class="coordinates-grid">
+            
+            <div class="coord-item">
+                <span class="coord-label">Nom Complet</span>
+                <span class="coord-value">{{ nomComplet }}</span>
+            </div>
+            
+            <div class="coord-item">
+                <span class="coord-label">Email Principal</span>
+                <span class="coord-value email-value" (click)="copyEmail()">{{ emailPrincipal }} (Cliquer pour Copier)</span>
+            </div>
+            
+            <div class="coord-item">
+                <span class="coord-label">Téléphone</span>
+                <span class="coord-value">{{ telephone }}</span>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

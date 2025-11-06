@@ -64,5 +64,18 @@ export class CompetencesComponent implements OnInit {
     return this.allSkills.filter(skill => skill.type === type);
   }
 
-  // La fonction getSkillLevelClass est retirée car nous n'avons plus de niveaux chiffrés pour toutes les cartes individuelles
+getIconClasses(icon: string): { [key: string]: boolean } {
+    const classes: { [key: string]: boolean } = {};
+    if (icon.startsWith('fa-')) {
+      // Détermine si c'est une icône de marque (fa-brands) ou une icône solide/standard (fa-solid)
+      if (icon === 'fa-angular' || icon === 'fa-java' || icon === 'fa-php' || icon === 'fa-git-alt' || icon === 'fa-docker' || icon === 'fa-node-js' || icon === 'fa-linkedin') {
+        classes['fa-brands'] = true;
+      } else {
+        // Pour les autres icônes (comme fa-database, fa-solid)
+        classes['fa-solid'] = true;
+      }
+      classes[icon] = true; // Ajoute la classe spécifique de l'icône
+    }
+    return classes;
+  }
 }

@@ -1,0 +1,97 @@
+/* Fichier: src/app/pages/experiences/experiences.component.scss (Course/Timeline) */
+
+$color-background: #101824;
+$color-surface: #bbbbbb;
+$color-text: #f0f0f0;
+$colorShadow:#160d0d;
+$color-accent-main: #928e91;    // Rouge tactique
+$color-accent-secondary: #4c4d4e; // Cyan
+$color-border: #333333;
+
+.timeline-container {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-title {
+font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-shadow: 0 0 5px rgba($colorShadow, 0.5);
+}
+
+.timeline-wrapper {
+    position: relative;
+    padding-left: 50px; /* Espace pour la ligne centrale */
+}
+
+/* --- La Piste de Course (Ligne Verticale) --- */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px; /* Position de la ligne */
+    width: 3px;
+    height: 100%;
+    background-color: $color-border;
+    box-shadow: 0 0 10px rgba($color-accent-secondary, 0.5); /* Halo cyan */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px; /* Espacement entre les checkpoints */
+    padding: 10px 0 10px 30px; /* Espacement du contenu */
+    background-color: $color-surface;
+    border-radius: 6px;
+    border-left: 4px solid $color-accent-secondary; /* Bordure latérale */
+    box-shadow: 5px 5px 0 $color-background; /* Effet brutaliste décalé */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 8px 8px 0 $color-accent-main; /* Ombre rouge vive au survol */
+    }
+}
+
+/* --- Le Checkpoint (Marqueur/Point) --- */
+.timeline-marker {
+    position: absolute;
+    left: -35px; /* Position sur la ligne centrale */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $color-accent-main; /* Couleur du checkpoint */
+    border: 3px solid $color-background;
+    z-index: 10;
+    box-shadow: 0 0 10px $color-accent-main;
+}
+
+.marker-icon {
+    font-size: 1.2rem;
+    line-height: 24px;
+    color: $color-background;
+}
+
+.item-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: $color-accent-secondary; /* Titre en cyan */
+    margin-bottom: 5px;
+    font-family: 'Agency FB', sans-serif;
+}
+
+.item-company, .item-duration {
+    font-size: 0.9rem;
+    color: $color-border;
+    font-family: 'Consolas', monospace;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    font-size: 1rem;
+    color: $color-text;
+    line-height: 1.4;
+}

@@ -1,1 +1,23 @@
-<p>experiences works!</p>
+<div class="timeline-container">
+    <h2 class="timeline-title">Mon Parcours :</h2>
+
+    <div class="timeline-wrapper">
+        
+        <div class="timeline">
+            <div *ngFor="let step of parcours" class="timeline-item" [attr.data-type]="step.type">
+                
+                <div class="timeline-marker">
+                    <span class="marker-icon">{{ step.type === 'professionnel' ? '💼' : '🎓' }}</span>
+                </div>
+                
+                <div class="timeline-content">
+                    <h3 class="item-title">{{ step.titre }}</h3>
+                    <p class="item-company">{{ step.entreprise }}</p>
+                    <time class="item-duration">{{ step.date_debut }} — {{ step.date_fin }}</time>
+                    <p class="item-description">{{ step.description }}</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

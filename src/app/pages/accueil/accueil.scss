@@ -11,7 +11,7 @@ $color-border: #4b5563;         // Gris moyen
 /* --- CARTE ID STYLE TACTIQUE --- */
 
 .profile-id-card-section {
-    display: flex;
+    //display: flex;
     justify-content: center;
     align-items: center;
     margin: 4rem auto;
@@ -22,14 +22,14 @@ $color-border: #4b5563;         // Gris moyen
     background-color: $color-surface;
     border: 1px solid $color-accent-secondary; /* Ligne fine et nette */
     border-radius: 4px; /* Coins légèrement arrondis */
-    
+    text-align: center;
     /* 🛑 OMBRE TACTIQUE : Bordure et ombre vives */
     box-shadow: 0 0 0 4px $color-background, 0 0 0 5px $color-accent-main;
     
     width: 100%;
     max-width: 700px;
     padding: 30px;
-    
+    margin: auto;
     color: $color-text;
     position: relative;
     overflow: hidden;
@@ -50,8 +50,9 @@ $color-border: #4b5563;         // Gris moyen
     justify-content: space-between;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-bottom: 2px solid $color-accent-secondary; /* Ligne dans la card
-    font-family: 'Agency FB', sans-serif; /* Police large et condensée (futuriste) */
+
+    border-bottom: 2px solid $color-accent-secondary; /* Ligne dans la card*/
+    font-family: 'Agency FB', sans-serif; 
 }
 
 .id-label, .id-number {
@@ -67,6 +68,8 @@ $color-border: #4b5563;         // Gris moyen
     grid-template-columns: 2fr 3fr;
     gap: 30px;
     padding-bottom: 20px;
+    justify-content: center; 
+    align-items: flex-start;
 }
 
 /* --- ZONE AVATAR --- */
@@ -109,6 +112,7 @@ $color-border: #4b5563;         // Gris moyen
     flex-direction: column; /* Affichage en colonne */
     gap: 10px;
     align-content: flex-start;
+    
 }
 
 .detail-block {
@@ -226,4 +230,35 @@ $color-border: #4b5563;         // Gris moyen
         background-color: rgba($color-accent-secondary, 0.1);
         color: white;
     }
+    /* Fichier: src/app/pages/accueil/accueil.scss */
+
+.accueil-container {
+    background-color: $color-background;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    
+    /* 🛑 S'assurer qu'il n'y a PAS de z-index ou de position relative/absolute */
+    position: relative; /* Gardons relative pour les side-deco internes */
+    z-index: 1; /* ⬅️ Assurez-vous que le z-index est bas */
+}
+.content-wrapper {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    
+    /* 🛑 CORRECTION CLÉ : Forcer l'alignement vertical */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    
+    padding-top: 3rem;
+}
+.profile-header {
+    /* Retirez toute marge négative s'il y en a */
+    padding-top: 0 !important; 
+    margin-top: 0 !important;
+}
+
 }
