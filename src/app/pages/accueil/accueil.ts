@@ -22,7 +22,7 @@ import { Experiences } from '../experiences/experiences';
     RouterLink, 
     CompetencesComponent, // ⬅️ Nécessaire
     Projets,     // ⬅️ Nécessaire
-    ContactComponent,
+   ContactComponent,
     Experiences      // ⬅️ Nécessaire
   ],
   
