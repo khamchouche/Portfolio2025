@@ -1,78 +1,67 @@
-<section class="profile-id-card-section">
-    <div class="profile-id-card">
+<section id="accueil" class="hero-section page-section" data-aos="fade-up">
+    <div class="hero-header-top">
+        <p class="greeting">Bienvenu sur mon portfolio!</p>
+        <h1 class="welcome-title">Kamelia HAMCHOUCHE</h1>
+    </div>
 
-        <div class="card-title-bar">
-            <span class="id-label">DÉVELOPPEUR ID</span>
-            <span class="id-number">#BUT-IAMSI</span>
-        </div>
-
-        <div class="card-main-content">
-            <div class="card-avatar-group">
-                <div class="card-avatar-area">
-                    <div *ngIf="!photoUrl" class="card-avatar-placeholder">
-                        <img src="assets/star.png" alt="Avatar" class="card-avatar">
-                    </div>
-                </div>
-                <h2 class="card-name">{{ nomComplet }}</h2>
-                <span class="card-role">{{ titreRole }}</span>
-            </div>
-
-            <div class="card-details-grid">
-                <div class="detail-block">
-                    <span class="detail-label">ÂGE</span>
-                    <span class="detail-value">22 ANS</span>
-                </div>
-                <div class="detail-block">
-                    <span class="detail-label">FORMATION</span>
-                    <span class="detail-value">BUT IAMSI</span>
-                </div>
-                <div class="detail-block">
-                    <span class="detail-label">TYPE PRIMAIRE</span>
-                    <span class="detail-value type-code">FULL-STACK</span>
-                </div>
-                <div class="detail-block">
-                    <span class="detail-label">LOISIRS</span>
-                    <span class="detail-value">JEUX / SÉRIES</span>
-                </div>
+    <div class="hero-main-content">
+        <div class="hero-image-container">
+            <img src="assets/star.png" alt="Profile Picture" class="profile-photo-hero">
+            <div class="dot-pattern">
+                <span></span><span></span>
+                <span></span><span></span>
             </div>
         </div>
 
-        <div class="card-quote-box">
-            <p class="card-quote">{{ displayIntroText }}</p>
+        <div class="hero-text-content">
+            <div class="intro-block">
+                <p>{{texteIntro}}</p>
+            </div>
 
-            <button *ngIf="requiresReadMore" (click)="toggleTextExpansion()" class="read-more-btn">
+            <div class="contact-grid">
+                <div class="contact-item"><i class="fas fa-phone-alt"></i> 06 52 80 77 76</div>
+                <div class="contact-item"><i class="fas fa-user"></i> Kamelia Hamchouche</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> hamchouchek65@gmail.com</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Bayonne, France</div>
+            </div>
 
-                {{ isTextExpanded ? 'Voir moins' : 'Lire la suite' }}
-            </button>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">BAC +3</span>
+                    <span class="stat-text">But informatique</span>
+                </div>
+            
+            </div>
+
         </div>
-
-    </div>
-    <div class="card-quote-box">
-
     </div>
 
-    <div class="card-action-bar">
-        <button class="btn btn-cv-tactical" (click)="telechargerCV()">
-            TÉLÉCHARGER MON CV
-            <span class="icon-arrow">&#10148;</span>
+    <div class="hero-bottom-info">
+        <div class="bottom-name-role">
+
+            <p class="bottom-role">En recherche d'un master</p>
+        </div>
+        <button class="btn download-cv-btn">
+            Telecharger mon CV <i class="fas fa-download"></i>
         </button>
     </div>
-
-    <section id="experiences" class="page-section">
-      
-        <app-experiences></app-experiences>
-    </section>
-    <section id="competences" class="page-section section-spacing">
-        <app-competences></app-competences>
-    </section>
-    <section id="projets" class="page-section full-width-section section-spacing">
-
-        <app-projets></app-projets>
-    </section>
-    <section id="contact" class="page-section full-width-section section-spacing">
-
-        <app-contact></app-contact>
-    </section> 
-
-
 </section>
+
+<section id="experiences" class="page-section" data-aos="fade-up">
+    <h2 class="section-title">MON PARCOURS</h2>
+   <app-experiences></app-experiences> </section>
+
+<section id="competences" class="page-section" data-aos="fade-up">
+    <h2 class="section-title">MES COMPÉTENCES</h2>
+    <app-competences></app-competences>
+    </section>
+
+<section id="projets" class="page-section" data-aos="fade-up">
+    <h2 class="section-title">MES PROJETS</h2>
+    <app-projets></app-projets>
+    </section>
+
+<section id="contact" class="page-section" data-aos="fade-up">
+    <h2 class="section-title">CONTACT</h2>
+    <app-contact></app-contact>
+    </section>

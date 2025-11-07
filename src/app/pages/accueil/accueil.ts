@@ -10,7 +10,7 @@ import { CompetencesComponent } from '../competences/competences';
 import { ContactComponent } from '../contact/contact';
 import { Projets } from '../projets/projets';
 import { Experiences } from '../experiences/experiences';
-import { trigger, transition, style, animate } from '@angular/animations';
+
 
 
 @Component({
@@ -40,7 +40,7 @@ export class AccueilComponent implements OnInit {
   nomComplet: string = "HAMCHOUCHE Kamélia"; 
   titreRole: string = "Étudiante BUT Informatique IAMSI"; 
   photoUrl: string | null = null;
-  texteIntro: string = "Bonjour ! Je suis Kamélia Hamchouche, étudiante de 22 ans en BUT Informatique, parcours IAMSI. Mon profil repose sur une double expertise essentielle : la conception logicielle (Full-Stack, Frameworks modernes) et l'intégration de Systèmes d'Information (SI). J'excelle à traduire les besoins utilisateurs en solutions fonctionnelles et sécurisées. Quand je ne code pas, j'aime m'évader en jouant aux jeux vidéo ou en regardant des séries. Je suis actuellement à la recherche d'une formation supérieure (Master) pour affirmer mon expertise en architecture SI et piloter des projets numériques complexes."; 
+  texteIntro: string = "Bonjour ! Je suis Kamélia Hamchouche, étudiante de 21 ans en BUT Informatique, parcours IAMSI. Mon profil repose sur une double expertise essentielle : la conception logicielle (Full-Stack, Frameworks modernes) et l'intégration de Systèmes d'Information (SI). J'excelle à traduire les besoins utilisateurs en solutions fonctionnelles et sécurisées. Quand je ne code pas, j'aime m'évader en jouant aux jeux vidéo ou en regardant des séries. Je suis actuellement à la recherche d'une formation supérieure (Master) pour affirmer mon expertise en architecture SI et piloter des projets numériques complexes."; 
   
   projets$!: Observable<Projet[]>;
 

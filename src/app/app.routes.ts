@@ -10,7 +10,7 @@ import { Projets } from './pages/projets/projets';
 import { Experiences } from './pages/experiences/experiences';
 import { CompetencesComponent } from './pages/competences/competences';
 import { ContactComponent } from './pages/contact/contact';
-import { AuthGuard } from '@angular/fire/auth-guard';
+
 
 export const routes: Routes = [
   // Routes Publiques

@@ -1,28 +1,36 @@
-// Fichier: src/main.ts (CODE CORRIGÉ)
+// Fichier: src/main.ts (Nettoyage des imports Modules/JIT)
 
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app'; // ⬅️ Importe votre composant racine 'App'
-import { provideRouter } from '@angular/router';
-import { routes } from './app/app.routes'; // ⬅️ Importe vos définitions de routes
+import { provideRouter } from '@angular/router'; 
+import { routes } from './app/app.routes'; 
 
-// Modules de services Firebase
+import 'aos/dist/aos.css';
+import { AppComponent } from './app/app'; // ⬅️ Utiliser AppComponent pour le bootstrap
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+// Imports Firebase (Fournisseurs)
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { environment } from './environments/environment'; // ⬅️ Assurez-vous que le chemin est correct
-import { provideHttpClient } from '@angular/common/http';
+import { environment } from './environments/environment'; 
 
-bootstrapApplication(AppComponent, {
+// Importez AOS si vous l'utilisez, sinon Angular plantera :
+import AOS from 'aos'; // Si AOS est installé via npm
+AOS.init({ duration: 800, once: true }); // Initialisation de l'animation au scroll
+
+
+bootstrapApplication(AppComponent, { // ⬅️ Bootstrap en mode Standalone
   providers: [
-    // Fournisseurs de Routage (Remplacement de AppRoutingModule)
     provideRouter(routes), 
     provideHttpClient(),
-    // Fournisseurs Firebase
+    provideAnimationsAsync(),
+    
+    // Initialisation Firebase
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     
-    // Fournisseurs supplémentaires (pour les formulaires réactifs, etc.)
-    // ...
+    // Si vous avez d'autres providers comme FormBuilder, ajoutez-les ici.
   ]
 }).catch(err => console.error(err));

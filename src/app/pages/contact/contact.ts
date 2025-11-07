@@ -13,7 +13,7 @@ interface SocialLink {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './contact.html',
   styleUrls: ['./contact.scss']
 })

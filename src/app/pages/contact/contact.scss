@@ -55,7 +55,7 @@ $color-border: #4b5563;
     text-decoration: none;
 
     &:hover {
-        color: lighten($color-accent-main, 10%);
+        color:lighten($color-accent-main, 10%);
         transform: translateY(-5px);
     }
 }

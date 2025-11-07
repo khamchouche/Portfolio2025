@@ -1,34 +1,11 @@
-<header class="mario-header">
-    <div class="mario-header-content">
-        <h1 class="mario-title">Portfolio Kamélia</h1>
-    </div>
-    <nav class="mario-nav">
-        <a [routerLink]="['/accueil']" routerLinkActive="active" class="mario-star-link">
-            <img src="./assets/star.png" alt="Accueil" class="mario-star">
-            <span class="star-label">Qui suis-je</span>
-        </a>
-          <a [routerLink]="['/experiences']" routerLinkActive="active" class="mario-star-link">
-            <img src="./assets/star.png" alt="experiences" class="mario-star">
-            <span class="star-label">Experiences</span>
-        </a>
-         <a [routerLink]="['/competences']" routerLinkActive="active" class="mario-star-link">
-            <img src="./assets/star.png" alt="Accueil" class="mario-star">
-            <span class="star-label">Compétences</span>
-        </a>
-        <a [routerLink]="['/projets']" routerLinkActive="active" class="mario-star-link">
-            <img src="assets/star.png" alt="Projets" class="mario-star">
-            <span class="star-label">Projets</span>
-        </a>
-        <a [routerLink]="['/contact']" routerLinkActive="active" class="mario-star-link">
-            <img src="assets/star.png" alt="Contact" class="mario-star">
-            <span class="star-label">Contact</span>
-        </a>
-    </nav>
-    <div class="mario-follower" [style.transform]="'translateX(' + marioPosition + 'px)'">
-        <img src="assets/mario.gif" alt="Mini Mario" class="mini-mario">
-    </div>
-</header>
+<app-sidebar></app-sidebar>
 
-<main class="router-content">
+<div class="main-content-wrapper">
     <router-outlet></router-outlet>
-</main>
+    
+    <div class="decorations-right">
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+</div>

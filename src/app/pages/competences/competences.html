@@ -1,60 +1,30 @@
-<div class="competences-container">
-    <h1 class="page-title">Mes compétences</h1>
-    
-    <div class="skill-category-section">
-        <h2 class="category-title">Langages</h2>
-        <div class="skill-cards-grid">
+<div class="competences-accordion-wrapper">
+    <div class="skills-accordions-grid">
+        
+        <div class="accordion-group" *ngFor="let category of skillCategories">
             
-            <a *ngFor="let skill of getSkillsByType('langage')" 
-               [routerLink]="skill.project_link" 
-               class="small-skill-card rectangle-card">
+            <div class="accordion-header" (click)="toggleCategory(category)">
+                <h2 class="category-title">{{ category.title }}</h2>
+                <span class="expand-icon">{{ category.isExpanded ? '—' : '+' }}</span>
+            </div>
+
+            <div class="accordion-body" *ngIf="category.isExpanded" 
+     [@slideInOut]="category.isExpanded ? 'in' : 'out'">
                 
-                <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="small-skill-logo">
-                <span *ngIf="!skill.logo_url" class="card-icon">&#123;&#125;</span>
-                <span class="small-skill-name">{{ skill.nom }}</span>
-            </a>
-        </div>
-    </div>
-    
-    <div class="skill-category-section">
-        <h2 class="category-title">Frameworks & Outils</h2>
-        <div class="skill-cards-grid">
-            
-            <a *ngFor="let skill of getSkillsByType('framework')" [routerLink]="skill.project_link" class="small-skill-card rectangle-card">
-                <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="small-skill-logo">
-                <span *ngIf="!skill.logo_url" class="card-icon">&#9889;</span>
-                <span class="small-skill-name">{{ skill.nom }}</span>
-            </a>
-            <a *ngFor="let skill of getSkillsByType('outil')" [routerLink]="skill.project_link" class="small-skill-card rectangle-card">
-                <img *ngIf="skill.logo_url" [src]="skill.logo_url" alt="{{ skill.nom }}" class="skill-logo">
-                <span *ngIf="!skill.logo_url" class="card-icon">⚙️</span>
-                <span class="small-skill-name">{{ skill.nom }}</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="skill-category-section">
-        <h2 class="category-title">Bases de Données & BI</h2>
-        <div class="skill-cards-grid">
-            <a *ngFor="let skill of getSkillsByType('database')" [routerLink]="skill.project_link" class="small-skill-card rectangle-card">
-                 <span class="card-icon">💾</span>
-                 <span class="small-skill-name">{{ skill.nom }}</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="skill-category-section">
-        <h2 class="category-title">Méthodologies & Humaines</h2>
-        <div class="skill-cards-grid human-skills-grid">
-            <div *ngFor="let skill of getSkillsByType('methodologie')" class="small-skill-card rectangle-card">
-                <span class="card-icon">🎯</span>
-                <span class="small-skill-name">{{ skill.nom }}</span>
-            </div>
-            <div *ngFor="let skill of getSkillsByType('humaine')" class="small-skill-card rectangle-card">
-                <span class="card-icon">🧠</span>
-                <span class="small-skill-name">{{ skill.nom }}</span>
+                <div class="skill-icons-grid">
+                    
+                    <a *ngFor="let skill of getSkillsByType(category.type)" 
+                       [routerLink]="skill.project_link ? skill.project_link : null" 
+                       class="skill-icon-item"
+                       [attr.data-tooltip]="skill.description">
+                        
+                        <i *ngIf="skill.iconClass" [ngClass]="getIconClasses(skill.iconClass)"></i>
+                        <span *ngIf="!skill.iconClass" class="skill-icon"></span>
+                        
+                        <span class="skill-label">{{ skill.nom }}</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

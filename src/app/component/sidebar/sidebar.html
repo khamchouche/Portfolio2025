@@ -1,0 +1,26 @@
+<aside class="sidebar">
+    <div class="logo">
+        <a href="#accueil" (click)="scrollToSection('accueil')">Portfolio</a>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#accueil" (click)="scrollToSection('accueil')" [class.active]="activeSection === 'accueil'">Qui suis-je</a></li>
+            
+            <li><a href="#experiences" (click)="scrollToSection('experiences')" [class.active]="activeSection === 'experiences'">Mon Parcours</a></li>
+            
+            <li><a href="#competences" (click)="scrollToSection('competences')" [class.active]="activeSection === 'competences'">Compétences</a></li>
+            
+            <li><a href="#projets" (click)="scrollToSection('projets')" [class.active]="activeSection === 'projets'">Projets</a></li>
+            
+            <li><a href="#contact" (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="social-links">
+        <a href="https://twitter.com/votre-profil" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/votre-profil" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/votre-profil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+</aside>

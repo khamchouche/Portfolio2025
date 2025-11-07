@@ -1,0 +1,96 @@
+/* src/app/components/sidebar/sidebar.component.scss */
+.sidebar {
+    width: 250px; /* Largeur de la barre latérale */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg-secondary); /* Fond légèrement plus clair */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    z-index: 100;
+
+    .logo {
+        margin-bottom: 50px;
+        a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-accent-primary);
+            text-decoration: none;
+        }
+    }
+
+    .main-nav {
+        flex-grow: 1; /* Prend l'espace restant au centre */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                margin-bottom: 20px;
+                a {
+                    color: var(--color-text-dark);
+                    text-decoration: none;
+                    font-size: 1.1rem;
+                    text-transform: uppercase;
+                    position: relative;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: var(--color-accent-primary);
+                    }
+                    &.active {
+                        color: var(--color-accent-primary);
+                        font-weight: 700;
+                        &::after { /* Petite barre d'accent sur la gauche pour l'actif */
+                            content: '';
+                            position: absolute;
+                            left: -20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 5px;
+                            height: 20px;
+                            background-color: var(--color-accent-primary);
+                            border-radius: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        a {
+            color: var(--color-text-dark);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+            &:hover {
+                color: var(--color-accent-primary);
+            }
+        }
+    }
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px 0;
+        .logo { margin-bottom: 20px; }
+        .main-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            li { margin-bottom: 0; }
+        }
+        .social-links { margin-top: 20px; }
+    }
+}

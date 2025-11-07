@@ -1,264 +1,457 @@
-/* Fichier: src/app/pages/accueil/accueil.scss (Styles ID Card Style VALORANT/Tactique) */
+/* Fichier: src/app/pages/accueil/accueil.scss */
 
-// Variables du thème (utilisées de manière agressive)
-$color-background: #424041;     // Noir de base
-$color-surface: #4c4d4e;        // Gris-bleu foncé (Fond de la carte)
-$color-text: #f0f0f0;           // Blanc clair
-$color-accent-main: #928e91;    // 🛑 ROUGE VIF (ACCENT TACTIQUE)
-$color-accent-secondary: #e2acdb; // CYAN (Accent secondaire)
-$color-border: #4b5563;         // Gris moyen
+// ===============================================
+// 1. VARIABLES & MIXINS
+// ===============================================
 
-/* --- CARTE ID STYLE TACTIQUE --- */
+$color-background: #1a1421; // Fond principal sombre (plus foncé)
+$color-surface: #2b2238; // Arrière-plan des blocs
+$color-text-light: #f0f0f0; // Texte clair
+$color-text-dark: #b8b1bc; // Texte secondaire (moins lumineux)
+$color-accent-primary: #e62e7a; // Rouge/Rose vif comme dans l'image
+$color-accent-secondary: #7e2eeb; // Violet
+$color-border: #3c324b; // Bordures subtiles
+$color-gradient-start: #7e2eeb; // Violet pour le dégradé
+$color-gradient-end: #e62e7a; // Rose pour le dégradé
 
-.profile-id-card-section {
-    //display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4rem auto;
-    perspective: 1000px;
-}
-
-.profile-id-card {
-    background-color: $color-surface;
-    border: 1px solid $color-accent-secondary; /* Ligne fine et nette */
-    border-radius: 4px; /* Coins légèrement arrondis */
-    text-align: center;
-    /* 🛑 OMBRE TACTIQUE : Bordure et ombre vives */
-    box-shadow: 0 0 0 4px $color-background, 0 0 0 5px $color-accent-main;
-    
-    width: 100%;
-    max-width: 700px;
-    padding: 30px;
-    margin: auto;
-    color: $color-text;
-    position: relative;
-    overflow: hidden;
-    
-    animation: slideIn 0.8s ease-out forwards;
-    transition: transform 0.2s ease-out;
-
-    &:hover {
-        transform: scale(1.01); /* Effet zoom subtil */
-        box-shadow: 0 0 0 4px $color-background, 0 0 0 6px $color-accent-main; /* Accentuer l'ombre */
-    }
-}
-
-/* --- EN-TÊTE ET ZONES DÉTAILS --- */
-
-.card-title-bar {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-
-    border-bottom: 2px solid $color-accent-secondary; /* Ligne dans la card*/
-    font-family: 'Agency FB', sans-serif; 
-}
-
-.id-label, .id-number {
-    font-size: 0.9rem;
-    color: $color-accent-main; /* Rouge tactique */
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.card-main-content {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 30px;
-    padding-bottom: 20px;
-    justify-content: center; 
-    align-items: flex-start;
-}
-
-/* --- ZONE AVATAR --- */
-
-.card-avatar-group {
-    text-align: center;
-    border-right: 1px dashed $color-border;
-    padding-right: 20px;
-}
-
-.card-avatar-area {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 10px;
-    background-color: $color-background;
-    border: 3px solid $color-accent-secondary; /* Bordure Cyan */
-    border-radius: 0; /* 🛑 Supprimer le border-radius pour un look angulaire */
-    box-shadow: 0 0 10px rgba($color-accent-secondary, 0.4);
-    overflow: hidden;
-}
-
-.card-name {
-    font-size: 1.8rem;
-    color: white;
-    font-weight: 900;
-    margin-top: 5px;
-    font-family: 'Agency FB', sans-serif;
-}
-
-.card-role {
-    font-family: 'Consolas', monospace;
-    color: $color-accent-main;
-    font-size: 0.9rem;
-}
-
-/* --- GRILLE DE DÉTAILS (TACTIQUE) --- */
-
-.card-details-grid {
-    display: flex;
-    flex-direction: column; /* Affichage en colonne */
-    gap: 10px;
-    align-content: flex-start;
-    
-}
-
-.detail-block {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 5px;
-    padding-top: 5px;
-
-}
-
-.detail-label {
-    font-size: 0.8rem;
-    color: $color-accent-secondary; /* Cyan */
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.detail-value {
-    font-size: 1rem;
-    color: $color-text;
-    font-weight: 500;
-    font-family: 'Consolas', monospace; /* Police code pour les données */
-}
-
-.type-code {
-    background-color: $color-accent-main; /* Rouge */
-    color: $color-background;
-    padding: 3px 8px;
-    border-radius: 2px;
-    font-weight: 900;
-}
-
-/* --- CITATION/OBJECTIF --- */
-
-.card-quote-box {
-    grid-column: 1 / 3;
-    padding-top: 20px;
-    border-top: 2px solid $color-accent-main; /* Ligne de séparation ROUGE VIVE */
-    margin-top: 20px;
-    text-align: center;
-}
-
-.card-quote {
-    font-style: normal; /* Pas d'italique */
-    font-size: 1rem;
-    line-height: 1.6;
-    color: $color-text;
-    font-family: 'Inter', sans-serif;
-}
-/* Fichier: src/app/pages/accueil/accueil.scss (Styles du Bouton CV Tactique) */
-
-/* --- BARRE D'ACTION (Conteneur du bouton) --- */
-.card-action-bar {
-    grid-column: 1 / 3;
-    padding-top: 15px;
-    text-align: center;
-    //border-top: 1px solid $color-border;
-    margin-top: 10px;
-}
-
-/* --- BOUTON CV TACTIQUE --- */
-.btn-cv-tactical {
-    background-color: $color-accent-main; /* Rouge Vif */
-    color: $color-background;
-    border: 2px solid $color-accent-main;
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border-radius: 2px; /* Style angulaire */
-    position: relative;
-    overflow: hidden;
-    
-    // Ajout d'une ombre décalée pour le côté tactique
-    box-shadow: 3px 3px 0 $color-accent-secondary; 
-    margin-left: 20px;
-
-    &:hover {
-        background-color: darken($color-accent-main, 10%);
-        color: white;
-        transform: translate(-1px, -1px); /* Décalage au survol */
-        box-shadow: 5px 5px 0 $color-accent-secondary; 
-    }
-}
-
-.icon-arrow {
-    margin-left: 10px;
-    transition: transform 0.2s;
-}
-
-.btn-cv-tactical:hover .icon-arrow {
-    transform: translateX(5px);
-}
-/* Fichier: src/app/pages/accueil/accueil.scss (Style pour Lire la Suite) */
-
-.read-more-btn {
-    all: unset; /* Retirer le style de bouton par défaut */
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: 1px solid $color-accent-main; /* Bordure rouge/accent */
-    background-color: transparent;
-    color: $color-accent-secondary; /* Cyan */
-    border-radius: 4px;
-    transition: background-color 0.2s;
-
-    &:hover {
-        background-color: rgba($color-accent-secondary, 0.1);
-        color: white;
-    }
-    /* Fichier: src/app/pages/accueil/accueil.scss */
+// ===============================================
+// 2. MISE EN PAGE GÉNÉRALE & CONTENEURS
+// ===============================================
 
 .accueil-container {
     background-color: $color-background;
     min-height: 100vh;
-    padding: 3rem 1rem;
+    padding: 0; // Pas de padding ici pour la hero-section
     display: flex;
     justify-content: center;
-    
-    /* 🛑 S'assurer qu'il n'y a PAS de z-index ou de position relative/absolute */
-    position: relative; /* Gardons relative pour les side-deco internes */
-    z-index: 1; /* ⬅️ Assurez-vous que le z-index est bas */
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden; // Éviter le scroll horizontal non désiré
 }
+
 .content-wrapper {
-    max-width: 900px;
+    max-width: 1200px; // Élargir pour correspondre à l'image
     width: 100%;
     text-align: center;
-    
-    /* 🛑 CORRECTION CLÉ : Forcer l'alignement vertical */
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    
-    padding-top: 3rem;
-}
-.profile-header {
-    /* Retirez toute marge négative s'il y en a */
-    padding-top: 0 !important; 
-    margin-top: 0 !important;
+    padding-top: 0; // Pas de padding en haut pour la hero-section
 }
 
+
+
+// ===============================================
+// 3. NOUVELLE SECTION D'ACCUEIL (HERO SECTION)
+// ===============================================
+
+.hero-section {
+    padding: 0 40px;
+    max-width: 1400px; /* Limiter la largeur maximale si le conteneur est global */
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column; // Contenu en colonne
+    justify-content: center; // Répartir l'espace
+    align-items: center;
+    padding: 50px 80px; // Padding général de la section
+    position: relative;
+    overflow: hidden;
+    color: $color-text-light;
+    text-align: left; // Tout le texte est aligné à gauche
+}
+
+.hero-header-top {
+    width: 100%;
+    margin-bottom: 50px; // Espace sous le titre
+    text-align: left;
+
+    .greeting {
+        font-size: 1.2rem;
+        color: $color-text-dark;
+        margin-bottom: 10px;
+    }
+    .welcome-title {
+        font-size: 3.5rem; // Plus grand que le modèle original
+        font-weight: 700;
+        color: $color-text-light;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+}
+
+.hero-main-content {
+    display: flex;
+    margin: 0 auto;
+    gap: 80px; // Espacement entre l'image et le texte
+    width: 100%;
+    align-items: flex-start; // Aligner en haut
+    margin-bottom: 80px; // Espace avant le bas de section
+}
+
+.hero-image-container {
+    position: relative;
+    width: 400px; // Taille de l'image
+    height: 400px;
+    flex-shrink: 0; // Ne pas rétrécir
+    
+    .profile-photo-hero {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid $color-accent-primary; // Bordure accentuée
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+    }
+
+    .dot-pattern {
+        position: absolute;
+        bottom: 20px;
+        left: -50px; // Positionner les points
+        display: grid;
+        grid-template-columns: repeat(2, 15px);
+        gap: 10px;
+        span {
+            width: 8px;
+            height: 8px;
+            background-color: $color-accent-secondary;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+    }
+}
+
+.hero-text-content {
+    flex-grow: 1; // Prend l'espace restant
+    display: flex;
+    flex-direction: column;
+    gap: 40px; // Espacement entre les blocs de texte
+    text-align: left;
+
+    .intro-block {
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: $color-text-dark;
+        }
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // Deux colonnes
+        gap: 20px 40px; // Espacement lignes/colonnes
+        color: $color-text-light;
+        font-size: 1.1rem;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            i {
+                color: $color-accent-primary;
+                margin-right: 15px;
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .stats-grid {
+        display: flex;
+        gap: 60px; // Espacement entre les blocs de stats
+        margin-top: 20px;
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .stat-number {
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: $color-accent-primary;
+                line-height: 1;
+            }
+            .stat-text {
+                font-size: 1.1rem;
+                color: $color-text-dark;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .bio-and-quote {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: $color-text-dark;
+            span {
+                color: $color-accent-primary; // Nom accentué
+                font-weight: 600;
+            }
+        }
+
+        .quote-box {
+            background-color: $color-surface;
+            padding: 30px;
+            border-left: 5px solid $color-accent-primary;
+            position: relative;
+            
+            &::before {
+                content: '"';
+                font-family: Arial, sans-serif; // Style de guillemet
+                font-size: 5rem;
+                color: rgba($color-text-light, 0.1);
+                position: absolute;
+                top: 0;
+                left: 10px;
+                z-index: 0;
+            }
+            .quote-text {
+                font-size: 1.2rem;
+                font-style: italic;
+                color: $color-text-light;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+.hero-bottom-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    border-top: 1px solid $color-border; // Ligne de séparation
+    margin-top: 50px;
+
+    .bottom-name-role {
+        text-align: left;
+        .bottom-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $color-text-light;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .bottom-role {
+            font-size: 1.3rem;
+            color: $color-text-dark;
+            margin-top: 5px;
+        }
+    }
+
+    .download-cv-btn {
+        background: linear-gradient(90deg, $color-gradient-start, $color-gradient-end); // Dégradé
+        color: $color-text-light;
+        padding: 18px 40px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba($color-accent-primary, 0.4);
+        }
+    }
+    .hero-content {
+    max-width: 500px; /* ⬅️ Assurer une largeur maximale lisible pour le bloc de texte */
+    z-index: 1; 
+}
+}
+
+// ===============================================
+// 4. STYLES POUR LES AUTRES SECTIONS
+// ===============================================
+
+.page-section {
+    width: 100%; 
+    max-width: 1200px; // Aligner avec la largeur du hero-section
+    margin-top: 4rem; 
+    margin-bottom: 4rem; 
+    padding: 50px 80px; // Padding pour les sections
+    background-color: $color-surface; // Fond pour chaque section
+    border-radius: 8px; // Coins arrondis
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Ombre
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; // Centrer le titre
+}
+
+.section-title {
+    width: 100%; 
+    font-size: 2.5rem;
+    color: $color-accent-primary;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 100px; // Ligne sous le titre
+        height: 3px;
+        background-color: $color-accent-secondary;
+        border-radius: 2px;
+    }
+}
+
+
+// ===============================================
+// 5. RESPONSIVE DESIGN
+// ===============================================
+
+@media (max-width: 1200px) {
+    .hero-section, .page-section {
+        padding: 40px 60px;
+    }
+    .hero-main-content {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 30px 40px;
+    }
+    .hero-header-top .welcome-title {
+        font-size: 2.8rem;
+    }
+    .hero-main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    .hero-image-container {
+        width: 300px;
+        height: 300px;
+        .dot-pattern {
+            left: 0; // Ajuster pour le centrage
+        }
+    }
+    .hero-text-content {
+        text-align: center; // Centrer le texte pour mobile
+        .contact-grid, .stats-grid, .bio-and-quote {
+            justify-content: center;
+            align-items: center;
+        }
+        .quote-box {
+            text-align: left; // Garder la citation alignée
+        }
+    }
+    .hero-bottom-info {
+        flex-direction: column;
+        gap: 30px;
+        .bottom-name-role {
+            text-align: center;
+        }
+    }
+    .page-section {
+        padding: 40px;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 20px 20px;
+    }
+    .hero-header-top .welcome-title {
+        font-size: 2.2rem;
+    }
+    .hero-main-content {
+        gap: 30px;
+    }
+    .hero-image-container {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-text-content {
+        .contact-grid {
+            grid-template-columns: 1fr; // Une seule colonne
+            gap: 15px;
+        }
+        .stats-grid {
+            flex-direction: column; // Empiler les stats
+            gap: 20px;
+        }
+        .bio-and-quote {
+            .quote-box {
+                padding: 20px;
+                &::before {
+                    font-size: 4rem;
+                }
+            }
+        }
+    }
+    .hero-bottom-info {
+        padding-top: 30px;
+        margin-top: 30px;
+        .bottom-name-role .bottom-name {
+            font-size: 1.8rem;
+        }
+        .bottom-name-role .bottom-role {
+            font-size: 1rem;
+        }
+        .download-cv-btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+        }
+    }
+    .page-section {
+        padding: 30px 20px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-header-top .welcome-title {
+        font-size: 1.8rem;
+    }
+    .hero-image-container {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-text-content {
+        .intro-block p, .bio-text, .quote-box .quote-text {
+            font-size: 0.9rem;
+        }
+        .contact-grid .contact-item, .stats-grid .stat-text {
+            font-size: 0.9rem;
+        }
+        .stats-grid .stat-number {
+            font-size: 2.2rem;
+        }
+    }
+    .hero-bottom-info .bottom-name-role .bottom-name {
+        font-size: 1.5rem;
+    }
+    .download-cv-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
 }

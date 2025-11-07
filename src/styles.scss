@@ -1,22 +1,70 @@
-/* Fichier: src/styles.scss */
+/* src/styles.scss */
 
-$color-background: #a19999; // Assurez-vous d'avoir cette variable ou cette couleur
+// ===============================================
+// 1. VARIABLES GLOBALES (Thème LiCaw)
+// ===============================================
+:root {
+    --color-bg-primary: #1a1a2e;        /* Fond principal sombre (Bleu/Violet foncé) */
+    --color-bg-secondary: #21213e;      /* Fond secondaire (pour les cartes, sections) */
+    --color-text-light: #e0e0e0;        /* Texte clair */
+    --color-text-dark: #b0b0d0;         /* Texte secondaire/gris */
+    --color-accent-primary: #ff297e;    /* Accent rose/magenta vif */
+    --color-accent-secondary: #00bcd4;  /* Accent cyan (optionnel, pour certaines ombres) */
+    --color-border: #3d3d5c;            /* Bordure subtile */
+    --color-hover: #ff297e;             /* Couleur de survol */
 
+    --font-primary: 'Montserrat', sans-serif; /* Police moderne pour titres et corps */
+    --font-secondary: 'Open Sans', sans-serif; /* Pour les paragraphes si besoin */
+}
+
+/* Importation de polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+
+// ===============================================
+// 2. STYLES DE BASE DU BODY
+// ===============================================
 body {
-    /* 🛑 CORRECTION CLÉ : Appliquer la couleur de fond au body et retirer les marges */
-    background-color: $color-background !important;
-    color: #e5e7eb; /* Couleur du texte principal */
-    margin: 0; /* Important pour supprimer toute marge par défaut */
-    padding-top: 150px; /* Conserver le décalage pour le contenu */
-}
-/* Fichier: src/styles.scss */
-
-/* 🛑 CORRECTION CLÉ : RÉINITIALISATION DU STYLE NAVIGATEUR 🛑 */
-html, body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
     margin: 0;
-    padding: 0;
-    /* Assurez-vous que la hauteur minimale couvre l'écran */
-    min-height: 100vh; 
+    overflow-x: hidden; /* Empêcher le défilement horizontal */
 }
 
-/* ... (Le reste de votre code styles.scss pour Tailwind/SCSS) ... */
+/* Animations simples pour le scroll */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// ===============================================
+// 3. UTILITIES
+// ===============================================
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-primary);
+    margin-bottom: 4rem;
+    position: relative;
+    padding-bottom: 15px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--color-accent-primary);
+        border-radius: 2px;
+    }
+}
