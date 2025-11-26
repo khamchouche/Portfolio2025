@@ -10,19 +10,35 @@ $color-accent-primary: #ff007f; // Rose
 $color-accent-secondary: #00bcd4; // Cyan
 
 .contact-page-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr; // Colonne de droite légèrement plus large
-    gap: 40px;
-    max-width: 1200px;
-    margin: 40px auto;
+  display: flex; /* Conserver flex pour le centrage */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement (si le parent est assez grand) */
+    
+    /* Ne pas définir max-width ici, laisser la colonne définir sa largeur */
+    // max-width: 1000px; /* RETIRÉ - C'est ce qui écrase potentiellement */
+    
+    width: 100%; /* Le wrapper prend toute la largeur disponible de son parent */
     padding: 2rem;
-    background-color: $color-bg-primary;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 40px auto; /* Pour centrer le wrapper si son parent n'est pas flex */
 
-    @media (max-width: 992px) {
-        grid-template-columns: 1fr; // Une seule colonne sur les petits écrans
-    }
+    background-color: transparent; /* ⬅️ Rendre le wrapper transparent si le background est sur le formulaire */
+    /* border-radius et box-shadow peuvent être déplacés sur .contact-form-column si vous voulez */
+    border-radius: 10px; // A laisser si vous voulez un fond sur le wrapper
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); // A laisser si vous voulez un fond sur le wrapper
+}
+/* --- Colonne de Droite (Maintenant seule) --- */
+.contact-form-column {
+    padding: 40px; 
+    background: linear-gradient(135deg, $color-bg-form, darken($color-bg-form, 10%)); // Dégradé
+    border-radius: 8px;
+    
+    /* 🛑 CORRECTION CLÉ : Forcer la largeur et empêcher l'écrasement */
+    width: 100%; /* Prend toute la largeur disponible du parent (contact-page-wrapper) */
+    max-width: 800px; /* ⬅️ Définir ici la largeur maximale souhaitée pour le formulaire */
+    min-width: 300px; /* ⬅️ Ajouter un minimum pour éviter l'écrasement sur petits écrans */
+    
+    flex-shrink: 0; /* ⬅️ Empêche l'élément de rétrécir si l'espace est limité */
+    flex-grow: 0; /* Empêche l'élément de grandir inutilement */
 }
 
 /* --- Colonne de Gauche : Informations de Contact --- */
@@ -209,7 +225,9 @@ $color-accent-secondary: #00bcd4; // Cyan
             resize: vertical; // Permet de redimensionner verticalement
             min-height: 120px;
         }
-
+input, textarea, .form-row {
+        box-sizing: border-box; 
+    }
         button[type="submit"] {
             background-color: $color-accent-primary;
             color: $color-text-light;

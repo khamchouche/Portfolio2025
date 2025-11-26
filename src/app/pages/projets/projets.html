@@ -1,1 +1,61 @@
-<p>projets works!</p>
+<div class="projets-container">
+    <p class="page-subtitle">Cliquez sur une carte pour voir les détails du projet.</p>
+
+    <div class="projets-grid">
+        <div class="projet-card" *ngFor="let projet of allProjets" (click)="openModal(projet)" data-aos="zoom-in">
+            
+            <div class="card-image-area">
+                <img [src]="projet.image_url" alt="{{ projet.titre }}" class="projet-thumbnail">
+                <span class="card-type-tag">{{ projet.type }}</span>
+            </div>
+            
+            <div class="card-content">
+                <h2 class="card-title">{{ projet.titre }}</h2>
+                <p class="card-summary">{{ projet.description_sommaire }}</p>
+            </div>
+            
+            <div class="card-footer">
+                <span class="view-details">Voir détails <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+        <div class="modal-content" *ngIf="selectedProjet" (click)="$event.stopPropagation()">
+            <button class="modal-close-btn" (click)="closeModal()">&times;</button>
+            
+            <div class="modal-header-section">
+                <h3 class="modal-title">{{ selectedProjet.titre }}</h3>
+                <span class="modal-type-tag">{{ selectedProjet.type }}</span>
+            </div>
+
+            <div class="modal-video-container" *ngIf="selectedProjet.youtube_url">
+                <iframe 
+                    [src]="getSafeYoutubeUrl(selectedProjet.youtube_url)" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="modal-details-grid">
+                <div class="detail-block">
+                    <span class="detail-label">Contexte</span>
+                    <span class="detail-value">{{ selectedProjet.contexte }}</span>
+                </div>
+                <div class="detail-block">
+                    <span class="detail-label">Durée</span>
+                    <span class="detail-value">{{ selectedProjet.duree }}</span>
+                </div>
+                <div class="detail-block full-width">
+                    <span class="detail-label">Technologies Utilisées</span>
+                    <span class="detail-value tech-list">{{ selectedProjet.technologies.join(', ') }}</span>
+                </div>
+            </div>
+            
+            <div class="modal-description">
+                <p>{{ selectedProjet.description_complete }}</p>
+            </div>
+        </div>
+    </div>
+</div>

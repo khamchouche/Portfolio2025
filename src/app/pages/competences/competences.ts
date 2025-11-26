@@ -54,7 +54,8 @@ export class CompetencesComponent implements OnInit {
       { id: 'bootstrap', nom: 'Bootstrap', type: 'framework', iconClass: 'fa-bootstrap', description: 'Intégration rapide de design responsif et mobile-first.' },
       
       // --- ERP & OUTILS DE GESTION (Anciennement CMS) ---
-      { id: 'odoo', nom: 'Odoo (ERP)', type: 'erp', iconClass: 'fa-odoo', description: 'Gestion de projets, modules et intégration PGI.' }, // ⬅️ AJOUTÉ
+      { id: 'odoo', nom: 'Odoo (ERP)', type: 'erp', iconClass: 'fa-odoo', description: 'Gestion de projets, modules et intégration PGI.' }, 
+       { id: 'wordpress', nom: 'wordpress (CMS)', type: 'erp', iconClass: 'fa-odoo', description: 'Gestion de projets, modules et intégration PGI.' },// ⬅️ AJOUTÉ
       { id: 'sharepoint', nom: 'SharePoint', type: 'erp', iconClass: 'fa-sharepoint', description: 'Intégration et gestion documentaire des Systèmes d\'Information.' }, // ⬅️ AJOUTÉ
       { id: 'git', nom: 'Git', type: 'outil', iconClass: 'fa-git-alt', description: 'Versionning avancé et gestion de branches avec GitFlow.' },
       { id: 'github', nom: 'GitHub', type: 'outil', iconClass: 'fa-github', description: 'Collaboration et gestion de dépôts en équipe.' },
@@ -62,6 +63,7 @@ export class CompetencesComponent implements OnInit {
 
       // --- BASES DE DONNÉES & BI ---
       { id: 'mysql', nom: 'MySQL / SQL/ No SQL', type: 'database', iconClass: 'fa-database', description: 'Conception de schémas (Merise/UML) et requêtes complexes.' },
+      { id: 'mysql', nom: 'MangoDB', type: 'database', iconClass: 'fa-database', description: 'Conception de schémas (Merise/UML) et requêtes complexes.' },
       { id: 'powerbi', nom: 'Power BI', type: 'database', iconClass: 'fa-chart-bar', description: 'Outil de Business Intelligence et de visualisation.' },
 
       // --- MÉTHODOLOGIES & HUMAINES ---

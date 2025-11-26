@@ -1,9 +1,16 @@
-// Fichier: src/app/models/projet.ts
+// Fichier: src/app/models/projet.ts (CORRIGÉ)
 
 export interface Projet {
     id?: string;
     titre: string;
-    description: string;
-    url?: string;
-    chemin_image?: string; // URL de l'image stockée
+    type: string;
+    description_sommaire: string; 
+    description_complete: string; 
+    duree: string; 
+    contexte: string; 
+    technologies: string[]; 
+    youtube_url?: string; 
+    
+    // 🛑 CORRECTION CRITIQUE : AJOUT DE LA PROPRIÉTÉ MANQUANTE
+    image_url: string; 
 }

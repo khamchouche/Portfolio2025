@@ -280,6 +280,8 @@ $color-gradient-end: #e62e7a; // Rose pour le dégradé
     max-width: 1200px; // Aligner avec la largeur du hero-section
     margin-top: 4rem; 
     margin-bottom: 4rem; 
+    /* Fichier: src/app/pages/accueil/accueil.scss */
+    justify-content: center; /* ⬅️ Assure que le contenu est centré */
     padding: 50px 80px; // Padding pour les sections
     background-color: $color-surface; // Fond pour chaque section
     border-radius: 8px; // Coins arrondis
