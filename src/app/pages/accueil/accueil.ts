@@ -40,8 +40,9 @@ export class AccueilComponent implements OnInit {
   nomComplet: string = "HAMCHOUCHE Kamélia"; 
   titreRole: string = "Étudiante BUT Informatique IAMSI"; 
   photoUrl: string | null = null;
-  texteIntro: string = "Bonjour ! Je suis Kamélia Hamchouche, étudiante de 21 ans en BUT Informatique, parcours IAMSI. Mon profil repose sur une double expertise essentielle : la conception logicielle (Full-Stack, Frameworks modernes) et l'intégration de Systèmes d'Information (SI). J'excelle à traduire les besoins utilisateurs en solutions fonctionnelles et sécurisées. Quand je ne code pas, j'aime m'évader en jouant aux jeux vidéo ou en regardant des séries. Je suis actuellement à la recherche d'une formation supérieure (Master) pour affirmer mon expertise en architecture SI et piloter des projets numériques complexes."; 
-  
+ // Fichier: src/app/pages/accueil/accueil.ts
+
+texteIntro: string = "Bonjour ! Je suis Kamélia Hamchouche, étudiante de 21 ans en BUT Informatique (parcours IAMSI). Passionnée par l'exploitation intelligente des données, mon profil allie développement logiciel et analyse SI. Je m'épanouis particulièrement dans la résolution de problèmes complexes et la découverte de patterns au sein des données. En dehors du code, je suis passionnée de jeux vidéo et de séries. Mon objectif actuel est d'intégrer un Master spécialisé en Intelligence Artificielle et Data Science pour transformer les flux de données en leviers décisionnels et concevoir les solutions prédictives de demain.";
   projets$!: Observable<Projet[]>;
 
   constructor(private dataService: DataService) { }

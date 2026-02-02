@@ -39,7 +39,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(private router: Router, library: FaIconLibrary) {
       // 🛑 Initialisation des icônes pour Font Awesome
       library.addIcons(faTwitter, faFacebookF, faInstagram, faLinkedinIn, faGithub, faEnvelope, faArrowRight, faPhoneAlt);
-  }
+ 
+    }
 
   ngOnInit(): void {
     // Écoute les changements de route pour déplacer Mario

@@ -1,39 +1,54 @@
-/* src/app/app.component.scss */
+/* --- app.component.scss --- */
+
 .main-content-wrapper {
-    margin-left: 250px; /* Espace pour la sidebar */
+    // 🌌 ESPACEMENT : Augmenté pour éviter la proximité avec la sidebar
+    margin-left: 320px !important; 
     min-height: 100vh;
     position: relative;
-    padding: 0 50px; /* Padding global pour le contenu */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 80px 0; // Padding haut/bas pour plus de respiration
+    width: calc(100% - 320px) !important;
+    
+    // 🛑 LOGIQUE DE NAVIGATION : On s'assure que le contenu peut s'afficher
+    background: transparent !important; 
+    z-index: 1;
+    overflow-x: hidden;
 
-    /* Décorations sur le côté droit */
-    .decorations-right {
-        position: fixed;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        z-index: 50; /* Au-dessus du contenu, sous la sidebar */
+    &::before {
+        content: "";
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100vw; // Fond étoilé sur TOUT l'écran
+        height: 100vh;
+        background-color: #000000; // Noir pur pour la fusion
 
-        a {
-            color: var(--color-text-dark);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-            &:hover {
-                color: var(--color-accent-primary);
-            }
-        }
+        background-image: 
+            radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(3px 3px at 150px 200px, rgba(255,255,255,0.8), rgba(0,0,0,0));
+        background-repeat: repeat;
+        background-size: 350px 350px;
+        animation: starsAnimation 120s linear infinite;
+        opacity: 0.5; 
+        z-index: -1; 
+        pointer-events: none;
     }
 }
 
-/* Responsive pour le contenu principal */
-@media (max-width: 768px) {
+@keyframes starsAnimation {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+@media (max-width: 992px) {
     .main-content-wrapper {
-        margin-left: 0; /* Plus de marge quand la sidebar est en haut */
-        padding: 20px;
-        .decorations-right {
-            display: none; /* Cache les décorations sur mobile pour ne pas surcharger */
-        }
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 40px 20px;
     }
 }

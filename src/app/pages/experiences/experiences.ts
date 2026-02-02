@@ -22,40 +22,31 @@ export class Experiences implements OnInit {
     this.parcours = [
       {
         id: 'but-initial',
-        titre: 'Début BUT Informatique (Tronc Commun)',
-        entreprise: 'IUT de Pau',
+        titre: 'BUT Informatique (IAMSI)',
+        entreprise: 'IUT de Bayonne et du Pays basque',
         date_debut: 'Sept. 2022',
-        date_fin: 'Juin 2023',
-        description: 'Acquisition des fondamentaux en algorithmique, base de données et développement web.',
+        date_fin: 'Juin 2026',
+        description: 'Acquisition des fondamentaux en algorithmique, base de données, développement web et gestion de projet. Approfondissement en intégration d\'applications, architecture SI et gestion de projet.',
         type: 'academique'
       },
-      {
-        id: 'stage-eden',
-        titre: 'Stage - Développement d\'une Application Interne',
-        entreprise: 'Eden Auto (Pau)',
-        date_debut: 'Mai 2023',
-        date_fin: 'Juin 2023',
-        description: 'Stage de 8 semaines en entreprise pour appliquer les compétences de première année.',
-        type: 'professionnel'
-      },
-      {
-        id: 'but-iamsi',
-        titre: 'Spécialisation BUT - Parcours IAMSI',
-        entreprise: 'IUT de Pau',
-        date_debut: 'Sept. 2023',
-        date_fin: 'Juin 2025',
-        description: 'Approfondissement en intégration d\'applications, architecture SI et gestion de projet Agile.',
-        type: 'academique'
-      },
+{
+  id: 'stage-eden',
+  titre: 'Stage - Data Engineer & Automatisation ETL',
+  entreprise: 'Edenauto (Siège social - Pau)',
+  date_debut: 'Avril 2025',
+  date_fin: 'Juin 2025',
+  description: 'Conception et développement d’un programme Python générique pour l’automatisation de flux de données. Ma mission a consisté à extraire des données complexes via une API REST, à transformer ces structures JSON en DataFrames (Pandas) et à orchestrer l’intégration automatisée vers un serveur SQL Server via des procédures de Merge, garantissant l’intégrité des bases de données sans doublons.',
+  type: 'professionnel'
+},
       {
         id: 'alternance-exakis',
-        titre: 'Alternance Développeur Full-Stack',
+        titre: 'Alternance Développeur Modern Work',
         entreprise: 'Exakis Nelite',
         date_debut: 'Sept. 2025',
         date_fin: 'Présent',
-        description: 'Alternance en cours, mise en œuvre de solutions d\'entreprise et Cloud (Azure).',
+        description: 'Alternance en cours, mise en œuvre de solutions Sharepoint pour des clients externes et internes.',
         type: 'professionnel'
       },
-    ].reverse(); // Affiche du plus récent au plus ancien (standard pour un CV/Parcours)
+    ].reverse();
   }
 }

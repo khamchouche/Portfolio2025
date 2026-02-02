@@ -1,70 +1,78 @@
-/* Fichier: src/app/pages/accueil/accueil.scss */
-
-// ===============================================
-// 1. VARIABLES & MIXINS
-// ===============================================
-
-$color-background: #1a1421; // Fond principal sombre (plus foncé)
-$color-surface: #2b2238; // Arrière-plan des blocs
-$color-text-light: #f0f0f0; // Texte clair
-$color-text-dark: #b8b1bc; // Texte secondaire (moins lumineux)
-$color-accent-primary: #e62e7a; // Rouge/Rose vif comme dans l'image
-$color-accent-secondary: #7e2eeb; // Violet
-$color-border: #3c324b; // Bordures subtiles
-$color-gradient-start: #7e2eeb; // Violet pour le dégradé
-$color-gradient-end: #e62e7a; // Rose pour le dégradé
-
-// ===============================================
-// 2. MISE EN PAGE GÉNÉRALE & CONTENEURS
-// ===============================================
+/* --- Variables Synchronisées --- */
+$color-bg-dark: #0f1931;
+// 🌓 TRANSPARENCE MAXIMALE : On passe de 0.015 à 0.005
+$color-glass: rgba(255, 255, 255, 0.005); 
+$color-glass-border: rgba(255, 255, 255, 0.08);
+$color-text-light: #f1f5f9;
+$color-text-dark: #94a3b8;
+$color-accent-primary: #e62e7a;   
+$color-accent-secondary: #00f2ff; 
 
 .accueil-container {
-    background-color: $color-background;
+    background: transparent !important;
     min-height: 100vh;
-    padding: 0; // Pas de padding ici pour la hero-section
     display: flex;
     justify-content: center;
     position: relative;
     z-index: 1;
-    overflow-x: hidden; // Éviter le scroll horizontal non désiré
 }
+.hero-social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: flex-start; // Ou center selon ton design
 
+  .social-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 12px 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    i {
+      font-size: 1.4rem;
+      color: #00f2ff; // Ton Cyan
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+      border-color: #ff297e; // Ton Rose
+      box-shadow: 0 10px 20px rgba(255, 41, 126, 0.2);
+      
+      i {
+        color: #ff297e;
+      }
+    }
+  }
+}
 .content-wrapper {
-    max-width: 1200px; // Élargir pour correspondre à l'image
+    max-width: 1200px;
     width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    padding-top: 0; // Pas de padding en haut pour la hero-section
 }
 
-
-
-// ===============================================
-// 3. NOUVELLE SECTION D'ACCUEIL (HERO SECTION)
-// ===============================================
-
+/* --- HERO SECTION --- */
 .hero-section {
-    padding: 0 40px;
-    max-width: 1400px; /* Limiter la largeur maximale si le conteneur est global */
-    margin: 0 auto;
-    min-height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column; // Contenu en colonne
-    justify-content: center; // Répartir l'espace
-    align-items: center;
-    padding: 50px 80px; // Padding général de la section
-    position: relative;
-    overflow: hidden;
+    padding: 50px 80px;
     color: $color-text-light;
-    text-align: left; // Tout le texte est aligné à gauche
 }
 
 .hero-header-top {
     width: 100%;
-    margin-bottom: 50px; // Espace sous le titre
+    margin-bottom: 50px;
     text-align: left;
 
     .greeting {
@@ -73,387 +81,153 @@ $color-gradient-end: #e62e7a; // Rose pour le dégradé
         margin-bottom: 10px;
     }
     .welcome-title {
-        font-size: 3.5rem; // Plus grand que le modèle original
-        font-weight: 700;
-        color: $color-text-light;
-        letter-spacing: 2px;
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: white;
         text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 }
 
 .hero-main-content {
     display: flex;
-    margin: 0 auto;
-    gap: 80px; // Espacement entre l'image et le texte
+    gap: 80px;
     width: 100%;
-    align-items: flex-start; // Aligner en haut
-    margin-bottom: 80px; // Espace avant le bas de section
+    align-items: flex-start;
+    margin-bottom: 80px;
 }
 
+/* --- PHOTO DE PROFIL NÉON --- */
 .hero-image-container {
     position: relative;
-    width: 400px; // Taille de l'image
+    width: 400px;
     height: 400px;
-    flex-shrink: 0; // Ne pas rétrécir
+    flex-shrink: 0;
     
     .profile-photo-hero {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
-        border: 5px solid $color-accent-primary; // Bordure accentuée
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-        position: relative;
-        z-index: 2;
-    }
-
-    .dot-pattern {
-        position: absolute;
-        bottom: 20px;
-        left: -50px; // Positionner les points
-        display: grid;
-        grid-template-columns: repeat(2, 15px);
-        gap: 10px;
-        span {
-            width: 8px;
-            height: 8px;
-            background-color: $color-accent-secondary;
-            border-radius: 50%;
-            opacity: 0.6;
-        }
+        border: 4px solid transparent;
+        background-image: linear-gradient($color-bg-dark, $color-bg-dark), 
+                          linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 0 0 30px rgba($color-accent-secondary, 0.2);
     }
 }
 
 .hero-text-content {
-    flex-grow: 1; // Prend l'espace restant
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px; // Espacement entre les blocs de texte
+    gap: 40px;
     text-align: left;
 
-    .intro-block {
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: $color-text-dark;
-        }
-    }
-
-    .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); // Deux colonnes
-        gap: 20px 40px; // Espacement lignes/colonnes
-        color: $color-text-light;
+    .intro-block p {
         font-size: 1.1rem;
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            i {
-                color: $color-accent-primary;
-                margin-right: 15px;
-                font-size: 1.3rem;
-            }
-        }
+        line-height: 1.7;
+        color: $color-text-dark;
     }
 
-    .stats-grid {
-        display: flex;
-        gap: 60px; // Espacement entre les blocs de stats
-        margin-top: 20px;
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            .stat-number {
-                font-size: 2.8rem;
-                font-weight: 700;
-                color: $color-accent-primary;
-                line-height: 1;
-            }
-            .stat-text {
-                font-size: 1.1rem;
-                color: $color-text-dark;
-                margin-top: 5px;
-            }
-        }
+    .stat-item .stat-number {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: $color-accent-secondary;
     }
 
-    .bio-and-quote {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: $color-text-dark;
-            span {
-                color: $color-accent-primary; // Nom accentué
-                font-weight: 600;
-            }
-        }
-
-        .quote-box {
-            background-color: $color-surface;
-            padding: 30px;
-            border-left: 5px solid $color-accent-primary;
-            position: relative;
-            
-            &::before {
-                content: '"';
-                font-family: Arial, sans-serif; // Style de guillemet
-                font-size: 5rem;
-                color: rgba($color-text-light, 0.1);
-                position: absolute;
-                top: 0;
-                left: 10px;
-                z-index: 0;
-            }
-            .quote-text {
-                font-size: 1.2rem;
-                font-style: italic;
-                color: $color-text-light;
-                position: relative;
-                z-index: 1;
-            }
-        }
+    .contact-item i { 
+        color: $color-accent-secondary; 
+        margin-right: 15px; 
     }
 }
 
+/* --- SECTIONS ULTRA-TRANSPARENTES --- */
+.page-section, .quote-box {
+    width: 100%; 
+    max-width: 1200px;
+    margin: 4rem 0;
+    padding: 50px 80px;
+    position: relative;
+    background: $color-glass !important;
+    
+    // 🌓 RÉDUCTION DU FLOU : On passe de 12px à 5px pour mieux voir les étoiles
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
+    
+    border-radius: 30px;
+    z-index: 1;
+    border: 1px solid transparent; 
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: inherit;
+        padding: 2px; 
+        background: linear-gradient(135deg, $color-accent-primary, $color-accent-secondary);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.4; // Contour légèrement plus discret pour la transparence
+        transition: opacity 0.4s ease;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+}
+
+/* --- BOUTON DE TÉLÉCHARGEMENT --- */
 .hero-bottom-info {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 50px;
-    border-top: 1px solid $color-border; // Ligne de séparation
+    border-top: 1px solid $color-glass-border;
     margin-top: 50px;
-
-    .bottom-name-role {
-        text-align: left;
-        .bottom-name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: $color-text-light;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .bottom-role {
-            font-size: 1.3rem;
-            color: $color-text-dark;
-            margin-top: 5px;
-        }
-    }
+    position: relative;
+    z-index: 10; 
 
     .download-cv-btn {
-        background: linear-gradient(90deg, $color-gradient-start, $color-gradient-end); // Dégradé
-        color: $color-text-light;
-        padding: 18px 40px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1.1rem;
-        display: inline-flex;
+        display: inline-flex; 
         align-items: center;
-        gap: 10px;
-        transition: transform 0.3s ease;
-
+        justify-content: center;
+        text-decoration: none;
+        
+        background: linear-gradient(90deg, $color-accent-primary, $color-accent-secondary);
+        color: white !important;
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 15px rgba($color-accent-secondary, 0.2);
+        
         &:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba($color-accent-primary, 0.4);
+            box-shadow: 0 15px 30px rgba($color-accent-secondary, 0.4);
+            filter: brightness(1.1);
+        }
+
+        i {
+            margin-left: 10px;
         }
     }
-    .hero-content {
-    max-width: 500px; /* ⬅️ Assurer une largeur maximale lisible pour le bloc de texte */
-    z-index: 1; 
-}
 }
 
-// ===============================================
-// 4. STYLES POUR LES AUTRES SECTIONS
-// ===============================================
-
-.page-section {
-    width: 100%; 
-    max-width: 1200px; // Aligner avec la largeur du hero-section
-    margin-top: 4rem; 
-    margin-bottom: 4rem; 
-    /* Fichier: src/app/pages/accueil/accueil.scss */
-    justify-content: center; /* ⬅️ Assure que le contenu est centré */
-    padding: 50px 80px; // Padding pour les sections
-    background-color: $color-surface; // Fond pour chaque section
-    border-radius: 8px; // Coins arrondis
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Ombre
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; // Centrer le titre
-}
-
-.section-title {
-    width: 100%; 
-    font-size: 2.5rem;
-    color: $color-accent-primary;
-    text-align: center;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 100px; // Ligne sous le titre
-        height: 3px;
-        background-color: $color-accent-secondary;
-        border-radius: 2px;
-    }
-}
-
-
-// ===============================================
-// 5. RESPONSIVE DESIGN
-// ===============================================
-
-@media (max-width: 1200px) {
-    .hero-section, .page-section {
-        padding: 40px 60px;
-    }
-    .hero-main-content {
-        gap: 50px;
-    }
-}
-
+/* --- RESPONSIVE --- */
 @media (max-width: 992px) {
-    .hero-section {
-        padding: 30px 40px;
-    }
-    .hero-header-top .welcome-title {
-        font-size: 2.8rem;
-    }
-    .hero-main-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-    }
-    .hero-image-container {
-        width: 300px;
-        height: 300px;
-        .dot-pattern {
-            left: 0; // Ajuster pour le centrage
-        }
-    }
-    .hero-text-content {
-        text-align: center; // Centrer le texte pour mobile
-        .contact-grid, .stats-grid, .bio-and-quote {
-            justify-content: center;
-            align-items: center;
-        }
-        .quote-box {
-            text-align: left; // Garder la citation alignée
-        }
-    }
-    .hero-bottom-info {
-        flex-direction: column;
-        gap: 30px;
-        .bottom-name-role {
-            text-align: center;
-        }
-    }
-    .page-section {
-        padding: 40px;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 20px 20px;
-    }
-    .hero-header-top .welcome-title {
-        font-size: 2.2rem;
-    }
-    .hero-main-content {
-        gap: 30px;
-    }
-    .hero-image-container {
-        width: 250px;
-        height: 250px;
-    }
-    .hero-text-content {
-        .contact-grid {
-            grid-template-columns: 1fr; // Une seule colonne
-            gap: 15px;
-        }
-        .stats-grid {
-            flex-direction: column; // Empiler les stats
-            gap: 20px;
-        }
-        .bio-and-quote {
-            .quote-box {
-                padding: 20px;
-                &::before {
-                    font-size: 4rem;
-                }
-            }
-        }
-    }
-    .hero-bottom-info {
-        padding-top: 30px;
-        margin-top: 30px;
-        .bottom-name-role .bottom-name {
-            font-size: 1.8rem;
-        }
-        .bottom-name-role .bottom-role {
-            font-size: 1rem;
-        }
-        .download-cv-btn {
-            padding: 15px 30px;
-            font-size: 1rem;
-        }
-    }
-    .page-section {
-        padding: 30px 20px;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-header-top .welcome-title {
-        font-size: 1.8rem;
-    }
-    .hero-image-container {
-        width: 200px;
-        height: 200px;
-    }
-    .hero-text-content {
-        .intro-block p, .bio-text, .quote-box .quote-text {
-            font-size: 0.9rem;
-        }
-        .contact-grid .contact-item, .stats-grid .stat-text {
-            font-size: 0.9rem;
-        }
-        .stats-grid .stat-number {
-            font-size: 2.2rem;
-        }
-    }
-    .hero-bottom-info .bottom-name-role .bottom-name {
-        font-size: 1.5rem;
-    }
-    .download-cv-btn {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-    }
+    .hero-main-content { flex-direction: column; align-items: center; text-align: center; }
+    .hero-text-content { text-align: center; }
+    .hero-image-container { width: 300px; height: 300px; }
 }
